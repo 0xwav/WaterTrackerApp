@@ -1,19 +1,20 @@
-//
-//  ContentView.swift
-//  WaterTrackerApp
-//
-//  Created by Raghad on 24/03/1446 AH.
-//
 
 import SwiftUI
 
 struct ContentView: View {
+    @State private var trackerIsOn = true
+    @State private var cups: Int = 0
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Water Tracker 💦")
+            
+            Toggle(isOn: $trackerIsOn) {
+                Text("Apple health")
+            }
+            
+            Stepper("Cups to drink per day \(cups)",
+                    value:$cups, in:1...100,step: 1 )
+            
         }
         .padding()
     }
